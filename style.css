@@ -1,0 +1,444 @@
+* {
+  font-family: Noto sans TC;
+  position: relative;
+  font-size: 0;
+  user-select: none;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.navbtn {
+  transition: 1s;
+  z-index: 4;
+  right: 20px;
+  bottom: 2%;
+  border-radius: 100%;
+  opacity: 0.4;
+  position: fixed;
+  cursor: pointer;
+  background-color: #B5495B;
+  width: 50px;
+  height: 50px;
+}
+.navbtn:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+.navbtn:hover .navlist {
+  opacity: 1;
+}
+
+.navlist {
+  flex-direction: column-reverse;
+  transition: 1s;
+  opacity: 0;
+  display: flex;
+  width: 120%;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: -220%;
+}
+
+.nav-item {
+  text-decoration: none;
+  text-align: center;
+  background-color: #fff;
+  transition: 1s;
+  color: #B5495B;
+  font-size: 12pt;
+  width: 100%;
+}
+.nav-item:hover {
+  color: #fff;
+  background-color: #B5495B;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.icon-box .icon-bar {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  background-color: #fff;
+  width: 100%;
+  height: 4px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.con-about {
+  height: 550px;
+  max-width: 1000px;
+}
+
+.block {
+  opacity: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 150px;
+  width: 50px;
+  height: 50px;
+  background-color: #ddd;
+}
+
+.title-mixing {
+  color: #fff;
+  margin: 0;
+  top: 20px;
+  left: 50px;
+  position: absolute;
+}
+
+.title-infpos {
+  color: #fff;
+  margin: 0;
+  top: 70px;
+  left: 50px;
+  position: absolute;
+}
+
+#PR {
+  margin-left: 50px;
+}
+
+.title-pi {
+  font-size: 80px;
+  color: #fff;
+  margin: 0;
+  bottom: 20px;
+  right: 40px;
+  opacity: 0%;
+  position: absolute;
+}
+
+h2 {
+  margin-left: 50px;
+  font-size: 24pt;
+}
+
+.title-about {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.title-skills {
+  color: #fff;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.inner-con {
+  opacity: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50%;
+  height: auto;
+}
+
+.my-name {
+  margin: 0;
+}
+
+.myprofile {
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 250px;
+  background-image: url("https://i.imgur.com/bu2EjYX.jpg");
+  background-size: contain;
+}
+
+.rab {
+  padding-left: 50px;
+}
+
+p {
+  font-size: 12pt;
+}
+
+h4 {
+  font-size: 14pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
+h1 {
+  font-size: 36pt;
+  z-index: 2;
+}
+
+.con-skills {
+  background-image: linear-gradient(to right, #6a11cb 0%, #113285 100%);
+}
+
+.skill-frame {
+  height: 300px;
+  width: 100%;
+}
+
+.skill-bar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #fff;
+  border-radius: 10px;
+  width: 80%;
+  height: 10px;
+}
+
+.skill-rect {
+  cursor: pointer;
+  top: 5px;
+  box-sizing: border-box;
+  width: 80px;
+  height: 90px;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+}
+.skill-rect:hover .skill-name {
+  font-size: 14pt;
+  opacity: 1;
+}
+.skill-rect:hover .skill {
+  width: 30px;
+  height: 30px;
+}
+
+.skill-name {
+  text-align: center;
+  opacity: 0.3;
+  transition: 1s;
+  top: 0px;
+  width: 100%;
+  font-size: 10pt;
+  color: #fff;
+}
+
+.skill-info {
+  width: 150%;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 125%;
+}
+.skill-info p {
+  margin: 0;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  color: #fff;
+  font-size: 10pt;
+}
+
+.skill {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.5s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+}
+
+#EMA {
+  left: 10%;
+}
+
+#EMD {
+  left: 30%;
+}
+
+#CE {
+  left: 50%;
+}
+
+#LC {
+  left: 70%;
+}
+
+#ME {
+  left: 90%;
+}
+
+.inner-block.con-right {
+  display: inline-block;
+  position: absolute;
+  left: 60%;
+  width: 100%;
+  height: 100%;
+  background-color: #113285;
+}
+
+.fusing-ball.con-right {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  left: 54%;
+  top: -50px;
+  width: 100px;
+  height: 120px;
+  background-color: #113285;
+  border-radius: 100%;
+}
+
+.con-pros {
+  background-color: #434343;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-pros {
+  width: 100%;
+  color: #fff;
+}
+
+.pro-frame {
+  display: inline-flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  width: 100%;
+  height: 300px;
+}
+
+.pro-block {
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+  background: #fff;
+  display: block;
+  padding: 5px;
+  width: 200px;
+  height: 100%;
+}
+.pro-block:hover .pro-img {
+  -webkit-filter: brightness(0.5);
+  background-size: auto 120%;
+}
+
+.pro-img {
+  transition: 0.5s;
+  width: 100%;
+  height: 190px;
+  background-position: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+#Taro {
+  background-image: url("https://i.imgur.com/TeM9jV1.jpg");
+}
+
+#Front {
+  background-image: url("https://i.imgur.com/AG5VzSX.jpg");
+}
+
+#MATLAB {
+  background-image: url("https://i.imgur.com/0UZQGvP.jpg");
+}
+
+.pro-title {
+  margin: 5px;
+  width: 100%;
+}
+
+.pro-des {
+  margin: 0px;
+  margin-left: 5px;
+}
+
+.con-contact {
+  background-color: #113285;
+  height: 200px;
+}
+
+.title-cont {
+  color: #fff;
+}
+
+.contact {
+  color: #fff;
+  margin-left: 50px;
+  opacity: 1;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.contact:hover {
+  opacity: 0.7;
+}
+
+@keyframes breath {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(2, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 25pt;
+  }
+
+  .title-pi {
+    font-size: 45pt;
+  }
+
+  .inner-con {
+    width: 100%;
+  }
+
+  .con-about {
+    height: auto;
+  }
+
+  .con-pros {
+    height: auto;
+  }
+
+  .pro-frame {
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+  }
+}
