@@ -19,8 +19,8 @@ function setUpArr(){
   addElem2Arr(".container.con-pros",simpleFade(".pro-frame"));
 }
 function simpleFade(elemName){
-  $(elemName).css({opacity:"0",top:"+=50px"});
-  return [elemName,{opacity: "100%",top: "-=50px"},1500];
+  $(elemName).css({opacity:"0",top:"+=20px"});
+  return [elemName,{opacity: "100%",top: "-=20px"},800];
 }
 function addElem2Arr(elemName,anim){
   var elem = document.querySelector(elemName);
@@ -79,7 +79,9 @@ function fusing(){
     }
     
     }
-  $(".con-right").delay(1250).animate({left:"0%"},4000);
+  $(".con-right").delay(1250).animate({left:"-5%"},4000,function(){
+    $(".fusing-ball.con-right").remove();
+  });
   $("h1.title-pi").delay(1250).animate({opacity:"100%",top:"-=50px"},1000);
   
   }
@@ -175,37 +177,75 @@ $("#Front").click(function(){
 $("#MATLAB").click(function(){
   window.open("https://github.com/Genomu0741/matlabTrial","_blank");
 });
-$("#n").click(function(){
-  $("html,body").animate({
-			scrollTop: 0
-		}, 600);
+var isOked = false;
+$(".contact").click(function(){
+  var clipboard = new ClipboardJS("#ct");
+  clipboard.on('success', function(e) {
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+    if(!isOked){
+      isOked=true;
+      $("body").append("<div class=\"ok-msg\">已複製</div>");
+      $(".ok-msg").css({opacity:"0"});
+      $(".ok-msg").animate({opacity:"0.7"});
+      $(".ok-msg").delay(400).animate({opacity:"0"},function(){
+      isOked = false;
+    });
+    }
+    e.clearSelection();
 });
-$("#nA").click(function(){
-  $("html,body").animate({
-			scrollTop: 500
-		}, 600);
 });
-$("#nS").click(function(){
-  var vw = $(window).width();
-  if(vw>500){
-    $("html,body").animate({
-			scrollTop: 1050
-		}, 600);
+var isNaved = false;
+$(".navbtn").click(function(){
+  if(!isNaved){
+    $(".navbtn").append("<div class='navlist'><\div>");
+    $(".navlist").append("<div class='nav-item' id='nP'>專案<\div>");
+    $(".navlist").append("<div class='nav-item' id='nS'>技能<\div>");
+    $(".navlist").append("<div class='nav-item' id='nA'>關於我<\div>");
+    $(".navlist").append("<div class='nav-item' id='n'>最上面<\div>");
+    isNaved = true;
+    $(".navlist").animate({opacity:"1"});
+    $(".nav-item").animate({opacity:"1"});
+    $("#n").click(function(){
+      $("html,body").animate({
+          scrollTop: 0
+        }, 600);
+    });
+    $("#nA").click(function(){
+      $("html,body").animate({
+          scrollTop: 500
+        }, 600);
+    });
+    $("#nS").click(function(){
+      var vw = $(window).width();
+      if(vw>500){
+        $("html,body").animate({
+          scrollTop: 1050
+        }, 600);
+      }else{
+        $("html,body").animate({
+          scrollTop: 1300
+        }, 600);
+      }
+    });
+    $("#nP").click(function(){
+      var vw = $(window).width();
+      if(vw>500){
+        $("html,body").animate({
+            scrollTop: 1550
+          }, 600);
+      }else{
+        $("html,body").animate({
+            scrollTop: 1820
+          }, 600);
+      }
+    });
   }else{
-    $("html,body").animate({
-			scrollTop: 1300
-		}, 600);
-  }
-});
-$("#nP").click(function(){
-  var vw = $(window).width();
-  if(vw>500){
-    $("html,body").animate({
-        scrollTop: 1550
-      }, 600);
-  }else{
-    $("html,body").animate({
-        scrollTop: 1820
-      }, 600);
+    $(".navlist").animate({opacity:"0"},300,function(){
+      $(".nav-item").remove();
+      $(".navlist").delay(200).remove();
+      isNaved = false;
+    });
   }
 });
