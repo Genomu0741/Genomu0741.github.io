@@ -67,20 +67,24 @@ function getPosition (element) {
 }
 
 function fusing(){
-  var ofg = 7;
-  for(var i = 0;i<2*ofg;i++){
+  var n = 7;
+  var dist = ($(window).height()*0.5/n);
+  for(var i = 0;i<2*(n+1);i++){
     $(".container.con-top").append("<div class=\"fusing-ball con-right\" id =\"ball-"+i+"\"></div>");
     var ran = Math.random()*i+1;
     
-    if(i>=ofg){
-       $("#ball-"+i).css({top:"+="+((i-ofg)*80+20)+"px",opacity:0.5,animation:"breath "+ran+"s infinite"});
+    if(i>=(n+1)){
+       $("#ball-"+i).css({top:"+="+((i-n)*dist+20)+"px",opacity:0.5,animation:"breath "+ran+"s infinite"});
     }else{
-      $("#ball-"+i).css({top:"+="+i*80+"px",opacity:1,animation:"breath "+ran+"s infinite"});
+      $("#ball-"+i).css({top:"+="+i*dist+"px",opacity:1,animation:"breath "+ran+"s infinite"});
     }
     
     }
-  $(".con-right").delay(1250).animate({left:"0%"},4000);
-  $("h1.title-pi").delay(1250).animate({opacity:"100%",top:"-=50px"},1000);
+  $(".con-right").delay(1250).animate({left:"-5%"},4000,function(){
+    $(".fusing-ball.con-right").remove();
+  });
+  $("h1.title-pi").css({bottom:"+=50px"});
+  $("h1.title-pi").delay(1250).animate({opacity:"100%",bottom:"-=50px"},1000);
   
   }
 var shownME = false;
@@ -175,40 +179,6 @@ $("#Front").click(function(){
 $("#MATLAB").click(function(){
   window.open("https://github.com/Genomu0741/matlabTrial","_blank");
 });
-$("#n").click(function(){
-  $("html,body").animate({
-			scrollTop: 0
-		}, 600);
-});
-$("#nA").click(function(){
-  $("html,body").animate({
-			scrollTop: 500
-		}, 600);
-});
-$("#nS").click(function(){
-  var vw = $(window).width();
-  if(vw>500){
-    $("html,body").animate({
-			scrollTop: 1050
-		}, 600);
-  }else{
-    $("html,body").animate({
-			scrollTop: 1300
-		}, 600);
-  }
-});
-$("#nP").click(function(){
-  var vw = $(window).width();
-  if(vw>500){
-    $("html,body").animate({
-        scrollTop: 1550
-      }, 600);
-  }else{
-    $("html,body").animate({
-        scrollTop: 1820
-      }, 600);
-  }
-});
 var isOked = false;
 $(".contact").click(function(){
   var clipboard = new ClipboardJS("#ct");
@@ -227,4 +197,66 @@ $(".contact").click(function(){
     }
     e.clearSelection();
 });
+});
+var isNaved = false;
+$(".navbtn").click(function(){
+  if(!isNaved){
+    $(".navbtn").append("<div class='navlist'><\div>");
+    $(".navlist").append("<div class='nav-item' id='nP'>專案<\div>");
+    $(".navlist").append("<div class='nav-item' id='nS'>技能<\div>");
+    $(".navlist").append("<div class='nav-item' id='nA'>關於我<\div>");
+    $(".navlist").append("<div class='nav-item' id='n'>最上面<\div>");
+    isNaved = true;
+    $(".navlist").animate({opacity:"1"});
+    $(".nav-item").animate({opacity:"1"});
+    $("#n").click(function(){
+      $("html,body").animate({
+          scrollTop: 0
+        }, 600);
+    });
+    $("#nA").click(function(){
+      var vw = $(window).width();
+      if(vw>1100){
+        $("html,body").animate({
+          scrollTop: 500
+        }, 600);
+      }else{
+        $("html,body").animate({
+          scrollTop: 900
+        }, 600);
+      }
+      
+      
+    });
+    $("#nS").click(function(){
+      var vw = $(window).width();
+      if(vw>1100){
+        $("html,body").animate({
+          scrollTop: 1050
+        }, 600);
+      }else{
+        $("html,body").animate({
+          scrollTop: 1800
+        }, 600);
+      }
+    });
+    $("#nP").click(function(){
+      var vw = $(window).width();
+      if(vw>1100){
+        $("html,body").animate({
+            scrollTop: 1550
+          }, 600);
+      }else{
+        $("html,body").animate({
+            scrollTop: 2675
+          }, 600);
+      }
+    });
+  }else{
+    $(".navlist").animate({opacity:"0"},300,function(){
+      $(".nav-item").remove();
+      $(".navlist").delay(200).remove();
+      isNaved = false;
+    });
+  }
 });
