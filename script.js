@@ -79,9 +79,7 @@ function fusing(){
     }
     
     }
-  $(".con-right").delay(1250).animate({left:"-5%"},4000,function(){
-    $(".fusing-ball.con-right").remove();
-  });
+  $(".con-right").delay(1250).animate({left:"0%"},4000);
   $("h1.title-pi").delay(1250).animate({opacity:"100%",top:"-=50px"},1000);
   
   }
@@ -177,6 +175,40 @@ $("#Front").click(function(){
 $("#MATLAB").click(function(){
   window.open("https://github.com/Genomu0741/matlabTrial","_blank");
 });
+$("#n").click(function(){
+  $("html,body").animate({
+			scrollTop: 0
+		}, 600);
+});
+$("#nA").click(function(){
+  $("html,body").animate({
+			scrollTop: 500
+		}, 600);
+});
+$("#nS").click(function(){
+  var vw = $(window).width();
+  if(vw>500){
+    $("html,body").animate({
+			scrollTop: 1050
+		}, 600);
+  }else{
+    $("html,body").animate({
+			scrollTop: 1300
+		}, 600);
+  }
+});
+$("#nP").click(function(){
+  var vw = $(window).width();
+  if(vw>500){
+    $("html,body").animate({
+        scrollTop: 1550
+      }, 600);
+  }else{
+    $("html,body").animate({
+        scrollTop: 1820
+      }, 600);
+  }
+});
 var isOked = false;
 $(".contact").click(function(){
   var clipboard = new ClipboardJS("#ct");
@@ -195,57 +227,4 @@ $(".contact").click(function(){
     }
     e.clearSelection();
 });
-});
-var isNaved = false;
-$(".navbtn").click(function(){
-  if(!isNaved){
-    $(".navbtn").append("<div class='navlist'><\div>");
-    $(".navlist").append("<div class='nav-item' id='nP'>專案<\div>");
-    $(".navlist").append("<div class='nav-item' id='nS'>技能<\div>");
-    $(".navlist").append("<div class='nav-item' id='nA'>關於我<\div>");
-    $(".navlist").append("<div class='nav-item' id='n'>最上面<\div>");
-    isNaved = true;
-    $(".navlist").animate({opacity:"1"});
-    $(".nav-item").animate({opacity:"1"});
-    $("#n").click(function(){
-      $("html,body").animate({
-          scrollTop: 0
-        }, 600);
-    });
-    $("#nA").click(function(){
-      $("html,body").animate({
-          scrollTop: 500
-        }, 600);
-    });
-    $("#nS").click(function(){
-      var vw = $(window).width();
-      if(vw>500){
-        $("html,body").animate({
-          scrollTop: 1050
-        }, 600);
-      }else{
-        $("html,body").animate({
-          scrollTop: 1300
-        }, 600);
-      }
-    });
-    $("#nP").click(function(){
-      var vw = $(window).width();
-      if(vw>500){
-        $("html,body").animate({
-            scrollTop: 1550
-          }, 600);
-      }else{
-        $("html,body").animate({
-            scrollTop: 1820
-          }, 600);
-      }
-    });
-  }else{
-    $(".navlist").animate({opacity:"0"},300,function(){
-      $(".nav-item").remove();
-      $(".navlist").delay(200).remove();
-      isNaved = false;
-    });
-  }
 });
