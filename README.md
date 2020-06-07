@@ -1,4 +1,4 @@
-# 個人履歷作業 工海二 陳庭賢 B07505019
+﻿# 個人履歷作業 工海二 陳庭賢 B07505019
 > 本次作業沒有使用任何模板
 > 使用pug+sass+jquery 純手刻
 ## 參考資料(同時是大綱 OㄣO)
@@ -33,7 +33,7 @@
     -  取得某元素座標的函式
     -  檢查是否進入某元素的函式
 ### 組合列
-```javascript=
+```javascript
 var hasEnteredArr = [];
 var preyElemArr = [];
 var animArr = [];
@@ -41,7 +41,7 @@ function setUpArr(){ ... }
 function addElem2Arr(elemName,anim){ ... }
 ```
 ### 滑動事件聆聽
-```javascript=
+```javascript
 var doc = document.documentElement;
 $(window).scroll(function(){
   var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
@@ -60,7 +60,7 @@ function getPosition(element){ ... }
 每個以不盡相同的頻率持續水平縮放(呼吸)
 jQuery決定多個色塊之間的數量跟參數的不同
 ### CSS呼吸動畫
-```sass=
+```sass
 .fusing-ball.con-right
   +center
   left: 54%
@@ -78,7 +78,7 @@ jQuery決定多個色塊之間的數量跟參數的不同
     transform: scale(1,1)
 ```
 ### jQuery加入多個橢圓
-```javascript=
+```javascript
 function fusing(){
   var ofg = 7;
   for(var i = 0;i<2*ofg;i++){
@@ -91,12 +91,12 @@ function fusing(){
 ## 複製email到剪貼簿
 沒什麼太特別的，還滿輕量化的
 ### 決定複製鍵、對象-pug
-```pug=
+```pug
 p.contact#ct(data-clipboard-target="#ct",
     data-clipboard-text="B07505019@ntu.edu.tw") B07505019@ntu.edu.tw
 ```
 ### 提醒訊息樣式-SASS
-```sass=
+```sass
 .ok-msg
   color: green
   font-size: 18pt
@@ -111,7 +111,7 @@ p.contact#ct(data-clipboard-target="#ct",
   border-radius: 20px
 ```
 ### 提醒已複製-jQuery
-```javascript=
+```javascript
 var isOked = false;
 $(".contact").click(function(){
   var clipboard = new ClipboardJS("#ct");
@@ -134,7 +134,7 @@ $(".contact").click(function(){
 ```
 ## 響應式設計RWD
 ### 以一列容器為單位切割畫面-pug
-```sass=
+```sass
 .container
   margin-left: auto
   margin-right: auto
@@ -148,7 +148,7 @@ $(".contact").click(function(){
 - flex-direction列轉行
 - 浮動導覽鈕大小
 - 已複製提醒訊息大小
-```sass=
+```sass
 @media screen and (max-width:600px)
   ...
   ...
@@ -158,7 +158,7 @@ $(".contact").click(function(){
 一樣是用append來做動態加入元素
 在點擊之後載入導覽列，先在CSS寫好樣子
 ### 大概導覽外觀-SASS
-```sass=
+```sass
 .navbtn
   +trans(1s)
   z-index: 4
@@ -194,7 +194,7 @@ $(".contact").click(function(){
     background-color: $cLo3
 ```
 ### 處理點擊事件-jQuery
-```javascript=
+```javascript
 var isNaved = false;
 $(".navbtn").click(function(){
   if(!isNaved){
