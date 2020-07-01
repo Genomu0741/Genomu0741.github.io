@@ -12,13 +12,39 @@ html, body {
 
 @keyframes shorting {
   0% {
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
+    opacity: 0%;
+    border-width: 10px;
+  }
+  50% {
+    width: 120%;
+    height: 120%;
     opacity: 80%;
+    border-width: 5px;
   }
   100% {
     width: 200%;
     height: 200%;
+    opacity: 0%;
+    border-width: 1px;
+  }
+}
+@keyframes slotShorting {
+  0% {
+    width: 50%;
+    height: 50%;
+    opacity: 0%;
+  }
+  50% {
+    width: 90%;
+    height: 90%;
+    opacity: 80%;
+    border-width: 5px;
+  }
+  100% {
+    width: 50%;
+    height: 50%;
     opacity: 0%;
   }
 }
@@ -44,6 +70,7 @@ html, body {
   justify-content: space-evenly;
   align-items: center;
   border: 1px solid #000;
+  border-radius: 4%;
 }
 
 .region.control {
@@ -188,6 +215,9 @@ html, body {
   color: #fff;
   background-color: #555;
 }
+.go2btn .short {
+  border-radius: 0;
+}
 
 #goCtr {
   left: 50%;
@@ -209,4 +239,47 @@ html, body {
   transform: translateY(-50%);
   left: 3%;
   top: 50%;
+}
+
+.cabinet {
+  position: absolute;
+  top: 70%;
+  width: 35%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.slot {
+  width: 100%;
+  background-color: #535953;
+  padding-bottom: 16%;
+  user-select: none;
+  cursor: pointer;
+  transition: 1s;
+}
+.slot:hover {
+  background-color: #FB9966;
+}
+.slot:hover .short {
+  border-color: #D0104C;
+}
+.slot .short {
+  border-radius: 0;
+  animation: slotShorting 2s infinite;
+}
+
+#ANH {
+  padding-bottom: 32%;
+}
+
+.slot-name {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
 }
