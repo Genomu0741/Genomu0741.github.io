@@ -318,5 +318,19 @@ html, body {
   color: #fff;
   text-align: center;
   font-size: 1vw;
+  width: auto;
+  height: 20px;
   transition: 0.5s;
+}
+
+.short.var-1 {
+  border-color: #DDD23B;
+}
+
+.short.var-2 {
+  border-color: #77969A;
+}
+
+.short.var-3 {
+  border-color: #6E75A4;
 }

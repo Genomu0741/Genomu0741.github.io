@@ -18,10 +18,14 @@ $(".region-con").on('click',".jack",function(){
   var pairId = pairing[onJack];
   var cueId = whereCue[onJack];
   var onPair = parseInt(pairId.replace("j",""))-1;
+  var clVar = getColorVariation();
+  clVar = checkColor(clVar);
+  var shortingDiv = "<div class=\"short var-"+clVar+"\"></div>";
   if(toggleList[onJack]==0){
-    $("#"+idStr).append("<div class=\"short\"></div>");
+    
+    $("#"+idStr).append(shortingDiv);
     if(pairId.charAt(0)=="j"){
-      $("#"+pairId).append("<div class=\"short\"></div>");
+      $("#"+pairId).append(shortingDiv);
     }
     toggleList[onJack]=1;
     toggleList[onPair]=1;
@@ -33,11 +37,11 @@ $(".region-con").on('click',".jack",function(){
     toggleList[onJack]=0;
     toggleList[onPair]=0;
   }
-  orTrigger(pairId);
-  orTrigger(cueId);
+  orTrigger(pairId,shortingDiv);
+  orTrigger(cueId,shortingDiv);
 });
 var preSums = {"ANH":0,"SPL":0,"AMP":0,"goCtr":0,"goCsl":0,"goLeft":0};
-function orTrigger(trgId){
+function orTrigger(trgId,shortingDiv){
   if(orTrg.hasOwnProperty(trgId)){
     var trgList = orTrg[trgId];
     var preSum = preSums[trgId];
@@ -46,13 +50,46 @@ function orTrigger(trgId){
       sum+=toggleList[trgList[i]];
     }
     // console.log(sum);
+    $("#"+trgId).append(shortingDiv);
     if(sum>preSum&&preSum==0){
-      $("#"+trgId).append("<div class=\"short\"></div>");
+      
     }else if(sum<preSum&&sum==0){
       $("#"+trgId).children(".short").remove();
     }
     preSums[trgId]=sum;
+    
   }
+}
+var colorSet = new Set();
+const totalSet = new Set([0,1,2,3]);
+
+function checkColor(color){
+  var isIncluded = colorSet.has(color);
+  colorSet.add(color);
+  if(isIncluded){
+    var diff = new Set(
+    [...colorSet].filter(x => !totalSet.has(x)));
+    var diffArr = Array.from(diff);
+    var size = diffArr.length;
+    var ran = Math.floor(Math.random()*size);
+    
+    return (size>0)?diffArr[ran]:0;
+  }else{
+    return color;
+  }
+}
+
+function getColorVariation(){
+  
+  return Math.ceil((toggleList.reduce((a,b)=>a+b)+sumOfObject(preSums))/2);
+}
+
+function sumOfObject( obj ) {
+  var sum = 0;
+  sum+=obj.ANH;
+  sum+=obj.AMP;
+  sum+=obj.SPL;
+  return sum;
 }
 
 var regionState = 0;
